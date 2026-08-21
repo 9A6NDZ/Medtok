@@ -24,7 +24,7 @@ class _MedTokAppState extends ConsumerState<MedTokApp> {
     final locale = ref.watch(localeProvider).valueOrNull;
 
     return MaterialApp.router(
-      onGenerateTitle: (context) => AppLocalizations.of(context).appName,
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),

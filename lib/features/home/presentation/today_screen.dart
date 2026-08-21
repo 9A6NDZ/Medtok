@@ -19,7 +19,7 @@ class TodayScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final doses = ref.watch(_todayDosesProvider);
 
     return Scaffold(
@@ -84,7 +84,7 @@ class _DoseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final time = TimeOfDay.fromDateTime(plannedTime.toLocal());
 
     return Card(
@@ -142,7 +142,7 @@ class _StatusChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final (color, label) = switch (status) {
       DoseStatus.taken => (AppTokens.statusTaken, l10n.statusTaken),
       DoseStatus.pending => (AppTokens.statusPending, l10n.statusPending),
@@ -155,7 +155,7 @@ class _StatusChip extends StatelessWidget {
       label: Text(label),
       side: BorderSide(color: color),
       labelStyle: TextStyle(color: color, fontWeight: FontWeight.w600),
-      backgroundColor: color.withValues(alpha: 0.08),
+      backgroundColor: color.withOpacity(0.08),
     );
   }
 }
