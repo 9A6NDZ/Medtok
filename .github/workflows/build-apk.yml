@@ -18,14 +18,35 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-            - name: Set up Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           flutter-version: "3.35.1"
 
+      # Repo does not commit android/ or ios/; generate them here.
       - name: Generate native platforms
         run: flutter create --org com.example --project-name medtok .
+
+      # The generated Gradle scripts can lag behind what plugins require
+      # (compileSdk 35, newer Kotlin). Patch them deterministically so the
+      # build does not depend on which exact versions flutter create emitted.
+      - name: Patch Android Gradle config
+        run: |
+          SETTINGS=android/settings.gradle
+          # Only raise Kotlin if it is an old 1.7.x/1.8.x (which causes the
+          # metadata mismatch). Leave 1.9.x / 2.x that newer Flutter emits.
+          if grep -qE 'org.jetbrains.kotlin.android" version "1\.[78]\.' "$SETTINGS"; then
+            sed -i -E 's/(id "org.jetbrains.kotlin.android" version )"1\.[78]\.[0-9]+"/\1"1.9.25"/' "$SETTINGS"
+          fi
+          echo "----- settings.gradle -----"
+          cat "$SETTINGS"
+
+          APP=android/app/build.gradle
+          sed -i -E 's/compileSdk(Version)?[ =]+[^ ]+/compileSdk = 35/' "$APP" || true
+          sed -i -E 's/targetSdk(Version)?[ =]+[^ ]+/targetSdk = 35/' "$APP" || true
+          echo "----- app/build.gradle -----"
+          cat "$APP"
 
       - name: Install dependencies
         run: flutter pub get
