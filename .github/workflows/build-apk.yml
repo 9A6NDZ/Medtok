@@ -24,11 +24,11 @@ jobs:
           channel: stable
           flutter-version: "3.35.1"
 
-      # Repo does not commit android/ or ios/; generate them here.
-      # Flutter 3.35 generates Kotlin-DSL Gradle files (.gradle.kts) with
-      # compileSdk 35 and a modern Kotlin plugin, so no manual patching needed.
       - name: Generate native platforms
         run: flutter create --org com.example --project-name medtok .
+
+      - name: Enable core library desugaring
+        run: python3 .github/scripts/patch_gradle.py
 
       - name: Install dependencies
         run: flutter pub get
@@ -50,3 +50,4 @@ jobs:
         with:
           name: medtok-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 14
