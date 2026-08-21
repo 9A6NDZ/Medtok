@@ -60,8 +60,10 @@ class MedicationDao extends DatabaseAccessor<AppDatabase>
     return (update(medicationDoses)..where((t) => t.id.equals(doseId))).write(
       MedicationDosesCompanion(
         status: Value(status),
-        actualTime: Value(actualTime),
-        updatedAt: Value(DateTime.now()),
+        // The DB invariant is that all timestamps are stored in UTC; callers
+        // may pass local times (e.g. DateTime.now()), so normalize here.
+        actualTime: Value(actualTime?.toUtc()),
+        updatedAt: Value(DateTime.now().toUtc()),
       ),
     );
   }

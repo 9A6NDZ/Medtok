@@ -65,7 +65,8 @@ void main() {
         )
         .first;
     expect(doses.single.status, DoseStatus.taken);
-    expect(doses.single.actualTime, taken);
+    expect(doses.single.actualTime, isNotNull);
+    expect(doses.single.actualTime!.isAtSameMomentAs(taken), isTrue);
   });
 
   test('settings dao round-trips values', () async {
