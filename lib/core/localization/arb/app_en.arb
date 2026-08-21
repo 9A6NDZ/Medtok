@@ -1,0 +1,53 @@
+{
+  "@@locale": "en",
+  "appName": "MedTok",
+
+  "navToday": "Today",
+  "navMedications": "Medications",
+  "navCalendar": "Calendar",
+  "navReports": "Reports",
+  "navSettings": "Settings",
+
+  "todayTitle": "Today",
+  "todayEmpty": "No doses for today.",
+  "todaySectionDue": "Due",
+  "todaySectionTaken": "Taken",
+  "todaySectionUpcoming": "Upcoming",
+  "todaySectionMissed": "Missed",
+
+  "doseTaken": "Taken",
+  "doseSkip": "Skip",
+  "doseSnooze": "Snooze",
+  "doseUnsure": "Not sure",
+
+  "statusTaken": "Taken",
+  "statusPending": "Pending",
+  "statusSnoozed": "Snoozed",
+  "statusSkipped": "Skipped",
+  "statusPaused": "Paused",
+  "statusUnsure": "Unsure",
+
+  "medicationsTitle": "Medications",
+  "medicationsEmpty": "No medications yet.",
+  "addMedication": "Add medication",
+
+  "calendarTitle": "Calendar",
+  "reportsTitle": "Reports",
+  "settingsTitle": "Settings",
+
+  "settingsAppearance": "Appearance",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark",
+  "settingsThemeSystem": "System",
+  "settingsLanguage": "Language",
+
+  "unitTablet": "tablet",
+  "unitCapsule": "capsule",
+
+  "doseUnitsTablet": "{count, plural, =1{1 tablet} other{{count} tablets}}",
+  "@doseUnitsTablet": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "medicalDisclaimer": "MedTok is not a substitute for a doctor. It does not diagnose or change your prescribed therapy. For medical questions, consult your doctor or pharmacist."
+}

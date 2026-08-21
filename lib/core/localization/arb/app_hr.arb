@@ -1,0 +1,54 @@
+{
+  "@@locale": "hr",
+  "appName": "MedTok",
+  "@appName": {},
+
+  "navToday": "Danas",
+  "navMedications": "Lijekovi",
+  "navCalendar": "Kalendar",
+  "navReports": "Izvještaji",
+  "navSettings": "Postavke",
+
+  "todayTitle": "Danas",
+  "todayEmpty": "Nema doza za danas.",
+  "todaySectionDue": "Za uzeti",
+  "todaySectionTaken": "Uzeto",
+  "todaySectionUpcoming": "Slijedi",
+  "todaySectionMissed": "Propušteno",
+
+  "doseTaken": "Uzeo",
+  "doseSkip": "Preskoči",
+  "doseSnooze": "Odgodi",
+  "doseUnsure": "Ne znam",
+
+  "statusTaken": "Uzeto",
+  "statusPending": "Čeka",
+  "statusSnoozed": "Odgođeno",
+  "statusSkipped": "Preskočeno",
+  "statusPaused": "Pauzirano",
+  "statusUnsure": "Nesigurno",
+
+  "medicationsTitle": "Lijekovi",
+  "medicationsEmpty": "Još nema unesenih lijekova.",
+  "addMedication": "Dodaj lijek",
+
+  "calendarTitle": "Kalendar",
+  "reportsTitle": "Izvještaji",
+  "settingsTitle": "Postavke",
+
+  "settingsAppearance": "Izgled",
+  "settingsThemeLight": "Svijetlo",
+  "settingsThemeDark": "Tamno",
+  "settingsThemeSystem": "Sustav",
+  "settingsLanguage": "Jezik",
+
+  "unitTablet": "tableta",
+  "unitCapsule": "kapsula",
+
+  "doseUnitsTablet": "{count, plural, =1{1 tableta} few{{count} tablete} other{{count} tableta}}",
+  "@doseUnitsTablet": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "medicalDisclaimer": "MedTok ne zamjenjuje liječnika. Ne postavlja dijagnoze i ne mijenja propisanu terapiju. Za medicinska pitanja obratite se liječniku ili ljekarniku."
+}
